@@ -4,14 +4,20 @@ import products from '@/data/products.json'
 
 export const useProductStore=defineStore("ProductStore",{
 
-   
-    
+    //state
     state:()=>{
         return {
-            products,
+            products:[]
         };
     },
 
     //acions
+    actions:{
+       async fill(){
+            this.products=(await import("@/data/products.json")).default
+        }
+    }
+
+
     //getters
 })
